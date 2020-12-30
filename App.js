@@ -1,11 +1,24 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Image } from 'react-native';
 
 export default function App() {
+  const styles = StyleSheet.create({
+    stretch: {
+      width: 400,
+      height: 400,
+      position: 'relative'
+    },
+  });
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+      <Image
+        style={styles.stretch}
+        source={require('./myImage.jpeg')}
+      />
+      <Text>       Krunal Mistry</Text>
+      <Text>       West haven, CT, USA</Text>
+      <Text>       Masters in Computer Science</Text>
       <StatusBar style="auto" />
     </View>
   );
