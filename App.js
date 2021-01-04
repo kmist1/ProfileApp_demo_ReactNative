@@ -1,34 +1,28 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import HomeScreen from './Components/Home';
+import Projects from "./Components/Projects";
+import AboutMe from './Components/AboutMe';
+import Contact from './Components/Contact';
+
+const Drawer = createStackNavigator();
+
 
 export default function App() {
-  const styles = StyleSheet.create({
-    stretch: {
-      width: 400,
-      height: 400,
-      position: 'relative'
-    },
-  });
   return (
-    <View style={styles.container}>
-      <Image
-        style={styles.stretch}
-        source={require('./myImage.jpeg')}
-      />
-      <Text>       Krunal Mistry</Text>
-      <Text>       West haven, CT, USA</Text>
-      <Text>       Masters in Computer Science</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Drawer.Navigator initialRouteName="Home">
+        <Drawer.Screen name="Home" component={HomeScreen} />
+        <Drawer.Screen name="Projects" component={Projects} />
+        <Drawer.Screen name="AboutMe" component={AboutMe} />
+        <Drawer.Screen name="Contact" component={Contact} />
+      </Drawer.Navigator>
+    </NavigationContainer>
+    
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+
+
+
